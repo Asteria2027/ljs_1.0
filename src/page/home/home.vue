@@ -6,10 +6,10 @@
     </mheader>
     <transition name="menu-fade" mode="out-in">
       <div class="index_more_icon" style="display: block;" v-if="menuShow">
-        <router-link :to="'/aboutUs'" tag="div" class="borderBottom-1px">平台介绍</router-link>
-        <router-link :to="'/riskEducation'" tag="div" class="borderBottom-1px">风险教育</router-link>
-        <router-link :to="'/informationDisplay'" tag="div" class="borderBottom-1px">信息披露</router-link>
-        <router-link :to="'/onlineService'" tag="div" >在线客服</router-link>
+        <router-link :to="'/aboutUs'" class="borderBottom-1px">平台介绍</router-link>
+        <router-link :to="'/riskEducation'"  class="borderBottom-1px">风险教育</router-link>
+        <router-link :to="'/informationDisplay'" class="borderBottom-1px">信息披露</router-link>
+        <a href="https://hz-v7.ntalker.com/downt/t2d/chat.php?v=2018.01.31&siteid=kf_10152&settingid=kf_10152_1518147916779&baseuri=https%3A%2F%2Fdl.ntalker.com%2Fjs%2Fxn6%2F&mobile=1&ref=https%3A%2F%2Fwww.uf-club.com%2Fm%2FhomeInit.do&tit=%E8%81%94%E9%87%91%E6%89%80%E5%AE%98%E7%BD%91-%E9%A3%8E%E6%8A%95%252B%E4%B8%8A%E5%B8%82%E7%B3%BB%E8%83%8C%E6%99%AF+%E5%AE%89%E5%85%A8%E5%8F%AF%E9%9D%A0%E7%9A%84%E4%BA%92%E8%81%94%E7%BD%91%E9%87%91%E8%9E%8D%E5%B9%B3%E5%8F%B0&iframechat=0&header=1&rnd=1523848342015">在线客服</a>
       </div>
     </transition>
     <div class="screen_cover" v-if="menuShow" @click="menuShow=!menuShow" @touchmove.prevent></div>
@@ -136,7 +136,8 @@ export default {
     padding-top: 0.04rem;
     padding-bottom: 0.08rem;
     z-index: 999;
-    >div {
+    >a {
+      display: block;
       width: 100%;
       font-size: 0.18rem;
       color: #484848;

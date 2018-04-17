@@ -1,5 +1,5 @@
 <template>
-  <div class="slide">
+  <header class="slide">
     <div class="swiper-container" v-if="foodTypes.length">
         <ul class="swiper-wrapper">
             <li class="swiper-slide" v-for="(item, index) in foodTypes" :key="index">
@@ -8,20 +8,23 @@
         </ul>
         <div class="swiper-pagination" id="indexPagination"></div>
       </div>
-  </div>
+  </header>
 </template>
 
 <script type="text/ecmascript-6">
 
-import '@/plugins/swiper.min.js'
-import '@/style/swiper.min.css'
+import Swiper from 'swiper'
+import '@/style/swiper-4.2.2.min.css'
 
 export default {
   data () {
     return {
       foodTypes:[
         {
-          imgSrc:'https://fuss10.elemecdn.com/9/7c/9700836a33e05c2410bda8da59117jpeg.jpeg'
+          imgSrc:'https://fuss10.elemecdn.com/3/01/c888acb2c8ba9e0c813f36ec9e90ajpeg.jpeg'
+        },
+        {
+          imgSrc:'https://fuss10.elemecdn.com/7/a9/77ff360f7d3fde2d459727ad09fcfjpeg.jpeg'
         },
         {
           imgSrc:'https://fuss10.elemecdn.com/8/83/171fd98b85dee3b3f4243b7459b48jpeg.jpeg'
@@ -30,16 +33,16 @@ export default {
     }
   },
   mounted(){
-    new Swiper ('.swiper-container', {
+    var mySwiper =  new Swiper ('.swiper-container', {
+      autoplay: {
+      delay: 4000,
+      stopOnLastSlide: false,
+      disableOnInteraction: false,
+      },
       loop: true,
-      pagination: '.swiper-pagination',
-      paginationClickable :true,
-      autoplayDisableOnInteraction : false,
-      autoplay: 4000,
-      observer:true,
-      observeParents:true,
-      pagination: '.swiper-pagination',
-      loop: true
+      pagination: {
+        el: '.swiper-pagination',
+      }
     });
   }
 }

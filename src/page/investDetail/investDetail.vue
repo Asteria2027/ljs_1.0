@@ -3,12 +3,20 @@
     <mheader headTitle='新手专享' :goBack="true"></mheader>
     <invest-detail-card></invest-detail-card>
     <div class="other-detail-list">
-      <div class="borderBottom-1px">
+      <div class="borderBottom-1px" @click="go('tenderRecord')">
         <span>投资记录</span>
         <span>36人<i class="iconfont icon-more"></i></span>
       </div>
-      <div>
-        <span>投资记录</span>
+      <div @click="go('projectDetails')">
+        <span>项目信息</span>
+        <span><i class="iconfont icon-more"></i></span>
+      </div>
+      <div class="borderBottom-1px" @click="go('BorrowerinfoAndRiskManage')">
+        <span>借款人信息</span>
+        <span><i class="iconfont icon-more"></i></span>
+      </div>
+      <div @click="go('BorrowerinfoAndRiskManage?Risk=1')">
+        <span>风险管理</span>
         <span><i class="iconfont icon-more"></i></span>
       </div>
     </div>
@@ -16,8 +24,8 @@
       <p>新用户及2017年11月28日之前在普通版和存管版从未投资过的用户可以获得10000元额度，投资过的老用户可以获得20000元额度，可多笔投资。</p>
       <a>邀请好友来投资>></a>
     </div>
-    <div class="gotoLogin">
-      <div>登录</div>
+    <div class="gotoLogin" v-if='!this.userInfo'>
+      <router-link tag='div' to='/login'>登录</router-link>
       <p>去注册>></p>
     </div>
   </div>  
@@ -26,11 +34,22 @@
 <script type="text/ecmascript-6">
 import mheader from '@/components/header/header.vue'
 import investDetailCard from '../../components/common/investmentDetailCard/investmentDetailCard.vue'
+import {mapState} from 'vuex'
     
 export default {
   data () {
     return {
     };
+  },
+  computed: {
+    ...mapState([
+      'userInfo'
+    ]),
+  },
+  methods: {
+    go(path){
+      this.$router.push({path:path});
+    }
   },
   components:{
     mheader,

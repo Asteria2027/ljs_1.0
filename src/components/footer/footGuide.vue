@@ -8,7 +8,7 @@
             <i class="iconfont icon-touzhi-n"></i>
             <span>投资</span>
         </router-link>
-        <router-link tag="div" to="/account"  class="guide_item">
+        <router-link tag="div" :to="userInfo? '/account':'/login'"  class="guide_item">
             <i class="iconfont icon-zhuanghu-n"></i>
             <span>账户</span>
         </router-link>
@@ -33,7 +33,7 @@
         },
         computed: {
             ...mapState([
-                'address','telphone'
+                'address','telphone','userInfo'
             ])
         },
         methods: {

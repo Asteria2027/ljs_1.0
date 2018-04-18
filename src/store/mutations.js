@@ -85,6 +85,7 @@ export default {
 	},
 	//获取用户信息存入vuex
 	[GET_USERINFO](state, info) {
+		console.log(info)
 		state.userInfo = { ...info };
 		// if (state.userInfo && (state.userInfo.username !== info.username)) {
 		// 	return;

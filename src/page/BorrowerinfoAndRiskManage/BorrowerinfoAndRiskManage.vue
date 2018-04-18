@@ -5,8 +5,8 @@
       <div :class="{'redBorder':Borrowerinfo}" @click='Borrowerinfo=true'>借款信息</div>
       <div :class="{'redBorder':!Borrowerinfo}" @click='Borrowerinfo=false'>风险管理</div>
     </div>
-    <login-interception v-if='!isLogin'></login-interception>
-    <section class="Borrowerinfo tabConten" v-if="Borrowerinfo&&isLogin">
+    <login-interception v-if='!userInfo'></login-interception>
+    <section class="Borrowerinfo tabConten" v-if="Borrowerinfo&&userInfo">
       <div class="title">
         <h3 class="borderBottom-1px">基本信息</h3>
       </div>
@@ -112,7 +112,7 @@
         </li>
       </ul>
     </section>
-    <section class="RiskManage tabConten" v-if="!Borrowerinfo&&isLogin">
+    <section class="RiskManage tabConten" v-if="!Borrowerinfo&&userInfo">
       <div class="title">
         <h3 class="borderBottom-1px">信息认证</h3>
       </div>
@@ -142,7 +142,6 @@ export default {
   data () {
     return {
       Borrowerinfo:this.$route.query.Risk?false:true, //通过入口附带参数来判断当前应展示的内容
-      isLogin:this.$store.state.userInfo
     };
   },
   computed: {

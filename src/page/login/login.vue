@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="login-enter" @click='enter'>登录</div>
-    <p class="forgetpwd"><a>忘记密码</a></p>
+    <p class="forgetpwd"><router-link to='/changePwd'>忘记密码</router-link></p>
     <div class="register"><a>注册送668元红包</a></div>
     <window-tips ref='windowTips'></window-tips>
   </div>
@@ -41,6 +41,7 @@ export default {
         this.$refs.windowTips.toast('请输入密码');
         return
       }
+      
       this.RECORD_USERINFO(JSON.stringify(this.user));
       this.$router.go(-1);
     }

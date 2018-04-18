@@ -10,6 +10,9 @@ let baseUrl = '';
 let routerMode = 'history';
 
 if (process.env.NODE_ENV == 'development') {
+	var vconsole = require('vconsole')
+	var vConsole = new vconsole();
+	
 	baseUrl = 'https://api.douban.com';
 	console.log('development', baseUrl)
 

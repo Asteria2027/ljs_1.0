@@ -9,6 +9,7 @@ const tenderRecord = r => require.ensure([], () => r(require('../page/tenderReco
 const projectDetails = r => require.ensure([], () => r(require('../page/projectDetails/projectDetails')), 'projectDetails')
 const BorrowerinfoAndRiskManage = r => require.ensure([], () => r(require('../page/BorrowerinfoAndRiskManage/BorrowerinfoAndRiskManage')), 'BorrowerinfoAndRiskManage')
 const login = r => require.ensure([], () => r(require('../page/login/login')), 'login')
+const changePwd = r => require.ensure([], () => r(require('../page/changePwd/changePwd')), 'changePwd')
 
 const notFound = r => require.ensure([], () => r(require('../staticPage/404/404.vue')), 'notFound')
 
@@ -62,6 +63,11 @@ export default [
     {
       path: '/login',
       component: login
+    },
+    //忘记密码
+    {
+      path: '/changePwd',
+      component: changePwd
     },
     {
       path: '*',

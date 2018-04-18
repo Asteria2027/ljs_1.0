@@ -1,12 +1,13 @@
 <template>
   <div class="tenderRecord">
     <mheader headTitle='投标记录' :goBack="true"></mheader>
-    <div class="tender-list-title">
+    <login-interception v-if='!userInfo'></login-interception>
+    <div class="tender-list-title" v-if='userInfo'>
       <span>投标人</span>
       <span>投标时间</span>
       <span>投标金额</span>
     </div>
-    <div class="tender-list">
+    <div class="tender-list" v-if='userInfo'>
       <ul>
         <li v-for="(item,index) in list" :key="index" class="borderBottom-1px">
           <div>1***7</div>
@@ -20,15 +21,23 @@
 
 <script type="text/ecmascript-6">
 import mheader from '@/components/header/header.vue'
+import loginInterception from '@/components/common/loginInterception/loginInterception.vue'
+import {mapState} from 'vuex'
 
 export default {
   data () {
     return {
       list:[1,2,3,4,5,6]
     };
+  }, 
+  computed: {
+    ...mapState([
+        'userInfo'
+    ]),
   },
   components:{
-    mheader
+    mheader,
+    loginInterception
   }
 }
 

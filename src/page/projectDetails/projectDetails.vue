@@ -1,7 +1,8 @@
 <template>
   <div class="projectDetails">
   <mheader headTitle='项目详情' :goBack="true"></mheader>
-    <div class="loan-information infomation">
+  <login-interception v-if='!userInfo'></login-interception>
+    <div class="loan-information infomation" v-if='userInfo'>
       <div class="title">
         <h3 class="borderBottom-1px">借款信息</h3>
       </div>
@@ -24,7 +25,7 @@
         </li>
       </ul>
     </div>
-    <div class="corporate-information infomation">
+    <div class="corporate-information infomation" v-if='userInfo'>
       <div class="title">
         <h3 class="borderBottom-1px">企业信息</h3>
       </div>
@@ -40,20 +41,20 @@
       </ul>
       <p>该借款企业主要经营普通种植材料：城镇绿化苗种植、批零兼营；园林器具批发、零售；花卉租赁；蔬菜种植、销售；果树（不含种苗）种植；水果、初级食用农产品批发、零售；花卉（不含种苗）种植、销售；盆景（不含种苗）种植、销售；农作物种植、销售；粮油批发、零售。<br/>普通种植材料：城镇绿化苗种植、批零兼营；园林器具批发、零售；花卉租赁；蔬菜种植、销售；果树（不含种苗）种植；水果、初级食用农产品批发、零售；花卉（不含种苗）种植、销售；盆景（不含种苗）种植、销售；农作物种植、销售；粮油批发、零售。</p>
     </div>
-    <div class="infomation">
+    <div class="infomation" v-if='userInfo'>
       <div class="title">
         <h3 class="borderBottom-1px">借款用途</h3>
       </div>
       <p>用于企业发展</p>
     </div>
-    <div class="infomation">
+    <div class="infomation" v-if='userInfo'>
       <div class="title">
         <h3 class="borderBottom-1px">还款来源</h3>
       </div>
       <p>还款来源为企业盈利</p>
     </div>
     <div class="screen_cover" v-if="fullPicShow" @click="fullPicShow=!fullPicShow"></div>
-    <div class="picture-information infomation">
+    <div class="picture-information infomation" v-if='userInfo'>
       <div class="title">
         <h3 class="borderBottom-1px">图片资料</h3>
       </div>
@@ -83,6 +84,8 @@
 import mheader from '@/components/header/header.vue'
 import Swiper from 'swiper'
 import '@/style/swiper-4.2.2.min.css'
+import loginInterception from '@/components/common/loginInterception/loginInterception.vue'
+import {mapState} from 'vuex'
 
 export default {
   data () {
@@ -143,8 +146,14 @@ export default {
       }, 20);
     }
   },
+  computed: {
+    ...mapState([
+        'userInfo'
+    ]),
+  },
   components:{
-    mheader
+    mheader,
+    loginInterception
   }
 }
 

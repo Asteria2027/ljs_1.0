@@ -71,8 +71,7 @@ li {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  display: none;
 }
 
 ::-webkit-scrollbar-track-piece {
@@ -81,15 +80,17 @@ li {
 }
 
 ::-webkit-scrollbar-thumb:vertical {
-  height: 5px;
+  /* height: 5px;
   background-color: rgba(125, 125, 125, 0.7);
-  -webkit-border-radius: 6px;
+  -webkit-border-radius: 6px; */
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
-  width: 5px;
+  /* width: 5px;
   background-color: rgba(125, 125, 125, 0.7);
-  -webkit-border-radius: 6px;
+  -webkit-border-radius: 6px; */
+  display: none;
 }
 i {
   font-style: normal;
@@ -183,10 +184,9 @@ input ,button {
 a[title] {
    display: none;
 }
-.gameCenter .content::-webkit-scrollbar,
+
 html::-webkit-scrollbar,
 body::-webkit-scrollbar{
-  width:0;
-  height:0;
+  display: none;
 }
 

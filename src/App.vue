@@ -12,8 +12,20 @@
 </template>
 
 <script>
+
+import {mapActions} from 'vuex'
+
 export default {
-  name: "App"
+  name: "App",
+  mounted(){
+    //获取用户信息
+    // this.getUserInfo()
+  },
+  methods: {
+    ...mapActions([
+        'getUserInfo'
+    ])
+  },
 };
 </script>
 
